@@ -20,30 +20,44 @@ class Library:
         self.__ID = ID
         self.__nombre = nombre
         self.__books = []
-    def add_book(self,book):
+#Agregacion
+    # def add_book(self,book):
+    #     self.__books.append(book)
+
+#Composicion
+    def add_book(self,id,title,author,publish_year):
+        book = Book(id,title,author,publish_year)
         self.__books.append(book)
+
     def order_by_title(self):
         return sorted(self.__books,key = lambda x:x.get_title())
     def order_by_year(self):
         return sorted(self.__books,key = lambda x:x.get_publish_year())
 
 if __name__ == '__main__':
-    libro1 = Book(1,"Martin Fierro", "Hernandez, Jose",1872)
-    libro2 = Book(2, "1984", "Orwell, George", 1949)
-    libro3 = Book(3, "Moby Dick", "Melville, Herman", 1851)
-    libro4 = Book(4, "Frankenstein", "Shelly, Mary", 1818)
-
+#Agregacion
+    # libro1 = Book(1,"Martin Fierro", "Hernandez, Jose",1872)
+    # libro2 = Book(2, "1984", "Orwell, George", 1949)
+    # libro3 = Book(3, "Moby Dick", "Melville, Herman", 1851)
+    # libro4 = Book(4, "Frankenstein", "Shelly, Mary", 1818)
+    #
+    # biblioteca = Library(1,"l1")
+    # biblioteca.add_book(libro1)
+    # biblioteca.add_book(libro2)
+    # biblioteca.add_book(libro3)
+    # biblioteca.add_book(libro4)
+#Composicion
     biblioteca = Library(1,"l1")
-    biblioteca.add_book(libro1)
-    biblioteca.add_book(libro2)
-    biblioteca.add_book(libro3)
-    biblioteca.add_book(libro4)
+    biblioteca.add_book(1,"Martin Fierro", "Hernandez, Jose",1872)
+    biblioteca.add_book(2, "1984", "Orwell, George", 1949)
+    biblioteca.add_book(3, "Moby Dick", "Melville, Herman", 1851)
+    biblioteca.add_book(4, "Frankenstein", "Shelly, Mary", 1818)
 
     print("Libros disponibles, ordenados por año")
     sorted_year = biblioteca.order_by_year()
     for i in sorted_year:
-        print(i.__str__())
+        print(i)
     print("Libros disponibles, ordenados por titulo")
     sorted_title = biblioteca.order_by_title()
     for i in sorted_title:
-        print(i.__str__())
+        print(i)
