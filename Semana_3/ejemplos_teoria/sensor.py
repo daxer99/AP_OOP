@@ -20,4 +20,3 @@ sensores = [s1,s2,s3]
 
 for sensor in sensores:
     sensor.medir()
-
